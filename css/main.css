@@ -1,0 +1,258 @@
+/* ================= Start fonts ================= */
+@font-face {
+    font-family: 'Roboto';
+    src: url('../webfonts/Roboto-Regular.woff2') format('woff2'),
+        url('../webfonts/Roboto-Regular.woff') format('woff'),
+        url('../webfonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ================= End fonts ================= */
+
+:root {
+    /* Start Color classes */
+    --my-dark-color: #1E202B;
+    --my-light-color: #262936;
+    --my-lighter-color: #323544;
+
+    --my-card-light-header-color: #222531;
+    --my-card-lighter-header-color: #2D303D;
+
+    --my-bg-blue-color: #009AD8;
+    --my-body-text-color: #bfc1c8;
+    --my-white-text-color: #fff;
+    --my-blue-text-color: #009ad8;
+    /* End Color classes */
+
+    /* Start Font Variables */
+    --my-main-font-family: 'Roboto';
+    /* End Font Variables */
+
+    /* Start Font sizes */
+    --my-small-text-size: 0.625rem;
+    /* 10px */
+    --my-main-small-text-size: 0.875rem;
+    /* 14px */
+    --my-main-text-size: 1rem;
+    /* 16px */
+    --my-main-large-text-size: 1.5rem;
+    /* 24px */
+    --my-large-text-size: 4.25rem;
+    /* 68px */
+    /* End Font sizes */
+}
+
+/* ================= Start Root Classes ================= */
+
+
+/* Start Font classes */
+
+.main-font-family {
+    font-family: var(--my-main-font-family);
+}
+
+/* End Font classes */
+
+
+
+/* Start font sizes classes */
+.my-small-text-size {
+    font-size: var(--my-small-text-size);
+}
+
+.my-main-small-text-size {
+    font-size: var(--my-main-small-text-size);
+}
+
+.my-main-text-size {
+    font-size: var(--my-main-text-size);
+}
+
+.my-main-large-text-size {
+    font-size: var(--my-main-large-text-size);
+}
+
+.my-large-text-size {
+    font-size: var(--my-large-text-size);
+}
+
+/* End font sizes classes */
+
+
+
+/* Start color classes */
+
+.my-dark-color {
+    background-color: var(--my-dark-color);
+}
+
+.my-light-color {
+    background-color: var(--my-light-color);
+}
+
+.my-lighter-color {
+    background-color: var(--my-lighter-color);
+}
+
+.my-card-light-header-color {
+    background-color: var(--my-card-light-header-color);
+}
+
+.my-card-lighter-header-color {
+    background-color: var(--my-card-lighter-header-color);
+}
+
+.my-bg-blue-color {
+    background-color: var(--my-bg-blue-color);
+}
+
+.my-body-text-color {
+    color: var(--my-body-text-color);
+}
+
+.my-white-text-color {
+    color: var(--my-white-text-color);
+}
+
+.my-blue-text-color {
+    color: var(--my-blue-text-color);
+}
+
+/* End color classes */
+
+
+
+/* ================= End Root Classes ================= */
+
+
+
+
+/* ================== Start General Style  ================== */
+a {
+    color: unset;
+}
+
+/* ================== End General Style ================== */
+
+
+/* ================== Start nav Style ================== */
+.navbar {
+    padding: 2.84rem 0;
+}
+
+.nav-link {
+    color: var(--my-white-text-color);
+    border: 1px transparent solid;
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--my-blue-text-color);
+}
+
+.nav-link.active {
+    border: var(--my-blue-text-color) 1px solid;
+}
+
+.nav-link:hover {
+    color: var(--my-blue-text-color);
+    border: var(--my-blue-text-color) 1px solid;
+}
+
+/* ================== End nav Style ================== */
+
+
+
+/* ================== Start hero section ================== */
+.hero-section {
+    background-image: url(../images/banner.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 22rem;
+}
+
+.hero-section input::placeholder {
+    color: grey;
+    font-size: 14px;
+}
+
+.hero-section button {
+    top: 0.3125rem;
+    right: 0.3125rem;
+    bottom: 0.3125rem;
+    padding: 0 2.5rem;
+}
+
+.hero-section button:hover {
+    color: #fff;
+    background-color: #009AD8;
+}
+
+/* ================== End hero section ================== */
+
+
+
+/* ================== Start dark background section ================== */
+.dark-bg-section {
+    min-height: 19.5rem;
+}
+
+/* ================== End dark background section ================== */
+
+
+
+/* ================== Start Footer section ================== */
+.footer input::placeholder {
+    color: grey;
+    font-size: 14px;
+}
+
+.footer button {
+    top: 0.3125rem;
+    right: 0.3125rem;
+    bottom: 0.3125rem;
+    padding: 0 1.2rem;
+}
+
+.footer button:hover {
+    color: #fff;
+    background-color: #009AD8;
+}
+
+
+.footer .row {
+    padding: 3.12rem 0;
+}
+
+.footer .input {
+    margin-bottom: 1.9rem;
+}
+
+.footer .fa-stack {
+    font-size: 1.3rem;
+}
+
+.footer a {
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-left: 0.3rem;
+    transition: all 0.2s;
+}
+
+.footer i {
+    transition: all 0.2s;
+}
+
+.footer a:hover {
+    background-color: #009ad8;
+}
+
+.footer a:hover i {
+    color: white;
+}
+
+/* ================== End Footer section ================== */
