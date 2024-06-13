@@ -172,6 +172,11 @@ a {
     min-height: 22rem;
 }
 
+.form-control:focus {
+    background-color:#1E202B;
+    box-shadow: 0 0 0 0;
+}
+
 .hero-section input::placeholder {
     color: grey;
     font-size: 14px;
@@ -188,6 +193,38 @@ a {
     color: #fff;
     background-color: #009AD8;
 }
+
+    /* ============== Start card ============== */
+.cards-container
+{
+    bottom: 3.1rem;
+}
+
+.cards-container .card-body
+{
+    padding-bottom: 2.1rem;
+}
+
+.card {
+    --bs-card-border-radius: 50%;
+}
+
+.card-header{
+    padding: 0.7rem;
+}
+
+.card-header:first-child {
+    border-radius: var(--bs-card-inner-border-radius) 0 0 0;
+}
+.card-header.middle-card {
+    border-radius: 0;
+}
+.card-header.last-card {
+    border-radius: 0 var(--bs-card-inner-border-radius) 0 0;
+}
+
+    /* ============== End card ============== */
+
 
 /* ================== End hero section ================== */
 
