@@ -42,11 +42,9 @@ async function getLocation() {
     // if the geographical city got successfuly, use it and if not, get the weather data using the hardcoded searched city
     if (locationFetched.ok == true) {
         searchedCity = jsonedLocation.city;
-        fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
         getWeatherData(weatherData)
     }
     else {
-        fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
         getWeatherData(weatherData)
     }
 }
