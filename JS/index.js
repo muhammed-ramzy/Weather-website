@@ -1,23 +1,25 @@
 'usestrict';
 
+// API variables
 let apiKey = "f7ff3b3d362a4d5393130820241206";
 let fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=cairo&days=3`;
 
+// Document Elements
 let content = document.getElementById('cards');
-console.log(content)
+let searchInput = document.getElementById('search');
 
+// Variables for Extracted data
 let weatherData = {};
-
-// Data needed to be extracted
-let date, dayName, dayNumber, month, secondDayName, thirdDayName;
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
 let cityName;
+let date, dayName, dayNumber, month, secondDayName, thirdDayName;
 let temp_c, secMaxTemp, secMinTemp, thrMaxTemp, thrMinTemp;
 let conditionText, secConditionText, thrConditionText;
 let conditionIcon, secConditionIcon, thrConditionIcon;
 let windSpeed, chanceOfRain, direction;
+
+// Some helper Arrays for the API data
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 async function getWeatherData(object) {
     let fetchedData = await fetch(fullURL);
