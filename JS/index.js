@@ -1,8 +1,9 @@
 'usestrict';
 
+let searchedCity = "Alexandria";
 // API variables
 let apiKey = "f7ff3b3d362a4d5393130820241206";
-let fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=cairo&days=3`;
+let fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
 
 // Document Elements
 let content = document.getElementById('cards');
@@ -21,13 +22,25 @@ let windSpeed, chanceOfRain, direction;
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
+getWeatherData(weatherData)
+
+// Adding listeneres
+searchInput.addEventListener('input', function () {
+    searchedCity = searchInput.value;
+    console.log(searchedCity);
+    getWeatherData(weatherData);
+})
+
+
 async function getWeatherData(object) {
+    fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`
     let fetchedData = await fetch(fullURL);
     object = await fetchedData.json();
 
-    extractWeatherData(object);
-    display();
-
+    if (fetchedData.ok == true) {
+        extractWeatherData(object);
+        display();
+    }
 }
 
 function extractWeatherData(object) {
@@ -159,8 +172,8 @@ function display() {
                                 <span>${secondDayName}</span>
                             </div>
                             <div class="card-body my-light-color text-center pt-5">
-                                
-                                <p class="weather-icon">
+                            
+                            <p class="weather-icon">
                                     <img src="${secConditionIcon}" alt="">
                                 </p>
                                 <p class="card-text my-main-large-text-size fw-bold text-white large-deg mb-1">${secMaxTemp}<sup>o</sup>C</p>
@@ -189,4 +202,3 @@ function display() {
     content.innerHTML = box;
 }
 
-getWeatherData(weatherData)
