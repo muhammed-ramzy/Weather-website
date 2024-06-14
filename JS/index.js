@@ -6,7 +6,7 @@ let fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=cairo&
 let content = document.getElementById('cards');
 console.log(content)
 
-let weatherData = [];
+let weatherData = {};
 
 // Data needed to be extracted
 let date, dayName, dayNumber, month, secondDayName, thirdDayName;
@@ -19,16 +19,22 @@ let conditionText, secConditionText, thrConditionText;
 let conditionIcon, secConditionIcon, thrConditionIcon;
 let windSpeed, chanceOfRain, direction;
 
-async function getWeatherData() {
+async function getWeatherData(object) {
     let fetchedData = await fetch(fullURL);
-    let dataFetched = await fetchedData.json();
+    object = await fetchedData.json();
 
-    // Extracting citynames
-    cityName = dataFetched.location.name;
-    windSpeed = dataFetched.current.wind_kph;
-    chanceOfRain = dataFetched.forecast.forecastday[0].day.daily_chance_of_rain;
+    extractWeatherData(object);
+    display();
 
-    direction = dataFetched.current.wind_dir;
+}
+
+function extractWeatherData(object) {
+    // Extracting different data
+    cityName = object.location.name;
+    windSpeed = object.current.wind_kph;
+    chanceOfRain = object.forecast.forecastday[0].day.daily_chance_of_rain;
+
+    direction = object.current.wind_dir;
     switch (direction) {
         case "N":
             direction = "North";
@@ -83,16 +89,16 @@ async function getWeatherData() {
     }
 
     // Extracting tempretures
-    temp_c = dataFetched.current.temp_c;
+    temp_c = object.current.temp_c;
 
-    secMaxTemp = dataFetched.forecast.forecastday[1].day.maxtemp_c;
-    secMinTemp = dataFetched.forecast.forecastday[1].day.mintemp_c;
+    secMaxTemp = object.forecast.forecastday[1].day.maxtemp_c;
+    secMinTemp = object.forecast.forecastday[1].day.mintemp_c;
 
-    thrMaxTemp = dataFetched.forecast.forecastday[2].day.maxtemp_c;
-    thrMinTemp = dataFetched.forecast.forecastday[2].day.mintemp_c;
+    thrMaxTemp = object.forecast.forecastday[2].day.maxtemp_c;
+    thrMinTemp = object.forecast.forecastday[2].day.mintemp_c;
 
     //Extracting current day name
-    date = new Date(dataFetched.forecast.forecastday[0].date);
+    date = new Date(object.forecast.forecastday[0].date);
     dayName = dayNames[date.getDay()];
 
     // Extracting tommorow and the day after tomorrow names
@@ -113,23 +119,17 @@ async function getWeatherData() {
 
 
     // Extracting Condition data
-    conditionText = dataFetched.forecast.forecastday[0].day.condition.text;
-    conditionIcon = dataFetched.forecast.forecastday[0].day.condition.icon;
+    conditionText = object.forecast.forecastday[0].day.condition.text;
+    conditionIcon = object.forecast.forecastday[0].day.condition.icon;
 
 
-    secConditionText = dataFetched.forecast.forecastday[1].day.condition.text;
-    secConditionIcon = dataFetched.forecast.forecastday[1].day.condition.icon;
+    secConditionText = object.forecast.forecastday[1].day.condition.text;
+    secConditionIcon = object.forecast.forecastday[1].day.condition.icon;
 
-    thrConditionText = dataFetched.forecast.forecastday[2].day.condition.text;
-    thrConditionIcon = dataFetched.forecast.forecastday[2].day.condition.icon;
-
-    console.log(conditionIcon);
-    display()
-
-
-    console.log(dataFetched);
+    thrConditionText = object.forecast.forecastday[2].day.condition.text;
+    thrConditionIcon = object.forecast.forecastday[2].day.condition.icon;
 }
-// day = dateFetched.forcast.forcastday[0].date
+
 function display() {
     box = `<div class="card col-4 border-0 my-body-text-color p-0">
                             <div class="card-header my-main-small-text-size border-0 my-card-lighter-header-color d-flex justify-content-between">
@@ -187,4 +187,4 @@ function display() {
     content.innerHTML = box;
 }
 
-getWeatherData()
+getWeatherData(weatherData)
