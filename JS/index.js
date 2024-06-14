@@ -109,7 +109,7 @@ async function getWeatherData() {
     dayNumber = date.getDate();
 
     //Extracting month name
-    month = months[date.getMonth() + 1];
+    month = months[date.getMonth()];
 
 
     // Extracting Condition data
