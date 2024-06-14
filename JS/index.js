@@ -1,9 +1,13 @@
 'usestrict';
 
 let searchedCity = "Alexandria";
+
+getLocation();
+
+
 // API variables
 let apiKey = "f7ff3b3d362a4d5393130820241206";
-let fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
+let fullURL;
 
 // Document Elements
 let content = document.getElementById('cards');
@@ -22,8 +26,6 @@ let windSpeed, chanceOfRain, direction;
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-getWeatherData(weatherData)
-
 // Adding listeneres
 searchInput.addEventListener('input', function () {
     searchedCity = searchInput.value;
@@ -31,6 +33,23 @@ searchInput.addEventListener('input', function () {
     getWeatherData(weatherData);
 })
 
+
+// APIs and related functions
+async function getLocation() {
+    let locationFetched = await fetch('http://ip-api.com/json/');
+    let jsonedLocation = await locationFetched.json();
+
+    // if the geographical city got successfuly, use it and if not, get the weather data using the hardcoded searched city
+    if (locationFetched.ok == true) {
+        searchedCity = jsonedLocation.city;
+        fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
+        getWeatherData(weatherData)
+    }
+    else {
+        fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`;
+        getWeatherData(weatherData)
+    }
+}
 
 async function getWeatherData(object) {
     fullURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`
