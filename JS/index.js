@@ -33,7 +33,7 @@ searchInput.addEventListener('input', function () {
 
 
 async function getWeatherData(object) {
-    fullURL = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`
+    fullURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchedCity}&days=3`
     let fetchedData = await fetch(fullURL);
     object = await fetchedData.json();
 
