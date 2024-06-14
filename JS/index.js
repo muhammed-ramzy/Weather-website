@@ -36,7 +36,7 @@ searchInput.addEventListener('input', function () {
 
 // APIs and related functions
 async function getLocation() {
-    let locationFetched = await fetch('http://ip-api.com/json/');
+    let locationFetched = await fetch('https://ip-api.com/json/');
     let jsonedLocation = await locationFetched.json();
 
     // if the geographical city got successfuly, use it and if not, get the weather data using the hardcoded searched city
