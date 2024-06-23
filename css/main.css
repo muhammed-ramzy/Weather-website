@@ -232,7 +232,7 @@ a {
 
 /* ================== Start dark background section ================== */
 .dark-bg-section {
-    min-height: 19.5rem;
+    min-height: 60rem;
 }
 
 /* ================== End dark background section ================== */
@@ -293,3 +293,11 @@ a {
 }
 
 /* ================== End Footer section ================== */
+
+
+@media (min-width: 992px) {
+
+    .dark-bg-section {
+        min-height: 19.5rem;
+    }
+}

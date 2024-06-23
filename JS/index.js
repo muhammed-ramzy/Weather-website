@@ -163,59 +163,59 @@ function extractWeatherData(object) {
 }
 
 function display() {
-    box = `<div class="card col-4 border-0 my-body-text-color p-0">
-                            <div class="card-header my-main-small-text-size border-0 my-card-lighter-header-color d-flex justify-content-between">
-                                <span id="today">${dayName}</span>
-                                <span id="date">${dayNumber}${month}</span>
-                            </div>
-                            <div class="card-body my-lighter-color">
-                                <h5 id="city" class="card-title py-3">${cityName}</h5>
-                                <p id="currentTemp" class="card-text display-1 fw-bold text-white mb-4">${temp_c}<sup>o</sup>C</p>
-                                <p id="todayCondition" class="weather-icon">
-                                    <img src="${conditionIcon}" alt="">
-                                </p>
-                                <p id="condition" class="weather-condition my-blue-text-color">
-                                    ${conditionText}
-                                </p>
-                                <div class="weather-properties">
-                                    <span class="me-3"><img src="images/icon-umberella.png" alt=""> ${chanceOfRain}%</span>
-                                    <span id="wind" class="me-3"><img src="images/icon-wind.png" alt=""> ${windSpeed}km/h</span>
-                                    <span class="me-3"><img src="images/icon-compass.png" alt=""> ${direction}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card col-4 border-0 my-body-text-color p-0 ">
-                            <div class="card-header middle-card my-main-small-text-size border-0 my-card-light-header-color text-center">
-                                <span>${secondDayName}</span>
-                            </div>
-                            <div class="card-body my-light-color text-center pt-5">
-                            
-                            <p class="weather-icon">
-                                    <img src="${secConditionIcon}" alt="">
-                                </p>
-                                <p class="card-text my-main-large-text-size fw-bold text-white large-deg mb-1">${secMaxTemp}<sup>o</sup>C</p>
-                                <p class="card-text text-white small-deg">${secMinTemp}<sup>o</sup>C</p>
-                                <p class="weather-condition my-blue-text-color">
-                                    ${secConditionText}
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card col-4 border-0 my-body-text-color p-0 ">
-                            <div class="card-header my-main-small-text-size middle-card border-0 my-card-lighter-header-color text-center">
-                                <span>${thirdDayName}</span>
-                            </div>
-                            <div class="card-body my-lighter-color text-center pt-5">
-                                
-                                <p class="weather-icon">
-                                    <img src="${thrConditionIcon}" alt="">
-                                </p>
-                                <p class="card-text my-main-large-text-size fw-bold text-white large-deg mb-1">${thrMaxTemp}<sup>o</sup>C</p>
-                                <p class="card-text text-white small-deg">${thrMinTemp}<sup>o</sup>C</p>
-                                <p class="weather-condition my-blue-text-color">
-                                    ${thrConditionText}
-                                </p>
-                            </div>
-                        </div>`;
+    box = `<div class="card col-lg-4 border-0 my-body-text-color p-0">
+    <div class="card-header my-main-small-text-size border-0 my-card-lighter-header-color d-flex justify-content-between">
+        <span id="today">${dayName}</span>
+        <span id="date">${dayNumber}${month}</span>
+    </div>
+    <div class="card-body my-lighter-color">
+        <h5 id="city" class="card-title py-3">${cityName}</h5>
+        <p id="currentTemp" class="card-text display-1 fw-bold text-white mb-4">${temp_c}<sup>o</sup>C</p>
+        <p id="todayCondition" class="weather-icon">
+            <img src="${conditionIcon}" alt="">
+        </p>
+        <p id="condition" class="weather-condition my-blue-text-color">
+            ${conditionText}
+        </p>
+        <div class="weather-properties">
+            <span class="me-3"><img src="images/icon-umberella.png" alt=""> ${chanceOfRain}%</span>
+            <span id="wind" class="me-3"><img src="images/icon-wind.png" alt=""> ${windSpeed}km/h</span>
+            <span class="me-3"><img src="images/icon-compass.png" alt=""> ${direction}</span>
+        </div>
+    </div>
+</div>
+<div class="card col-lg-4 border-0 my-body-text-color p-0 ">
+    <div class="card-header middle-card my-main-small-text-size border-0 my-card-light-header-color text-center">
+        <span>${secondDayName}</span>
+    </div>
+    <div class="card-body my-light-color text-center pt-5">
+    
+    <p class="weather-icon">
+            <img src="${secConditionIcon}" alt="">
+        </p>
+        <p class="card-text my-main-large-text-size fw-bold text-white large-deg mb-1">${secMaxTemp}<sup>o</sup>C</p>
+        <p class="card-text text-white small-deg">${secMinTemp}<sup>o</sup>C</p>
+        <p class="weather-condition my-blue-text-color">
+            ${secConditionText}
+        </p>
+    </div>
+</div>
+<div class="card col-lg-4 border-0 my-body-text-color p-0 ">
+    <div class="card-header my-main-small-text-size middle-card border-0 my-card-lighter-header-color text-center">
+        <span>${thirdDayName}</span>
+    </div>
+    <div class="card-body my-lighter-color text-center pt-5">
+        
+        <p class="weather-icon">
+            <img src="${thrConditionIcon}" alt="">
+        </p>
+        <p class="card-text my-main-large-text-size fw-bold text-white large-deg mb-1">${thrMaxTemp}<sup>o</sup>C</p>
+        <p class="card-text text-white small-deg">${thrMinTemp}<sup>o</sup>C</p>
+        <p class="weather-condition my-blue-text-color">
+            ${thrConditionText}
+        </p>
+    </div>
+</div>`;
     content.innerHTML = box;
 }
 
